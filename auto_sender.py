@@ -3,16 +3,16 @@ import schedule
 import time
 
 # Введи свои данные
-api_id = int("YOUR_API_ID")  # Твой API ID с my.telegram.org
-api_hash = "YOUR_API_HASH"  # Твой API Hash с my.telegram.org
-phone_number = "YOUR_PHONE_NUMBER"  # Твой номер телефона в формате +123456789
+api_id = 26071362  # Твой API ID с my.telegram.org
+api_hash = "c3d12bc02851cde9de371fa1a919bd76"  # Твой API Hash с my.telegram.org
+phone_number = "+77712388254"  # Твой номер телефона в формате +123456789
 
 # Подключение к Telegram
 client = TelegramClient('user_session', api_id, api_hash)
 
 # Функция для отправки сообщения
 async def send_message():
-    chat_id = "CHAT_ID_OR_USERNAME"  # Укажи ID чата или @username
+    chat_id = -1266771326  # ID чата
     message = ".отн сделать подарок"  # Текст сообщения
     await client.send_message(chat_id, message)
     print(f"Сообщение отправлено в {chat_id}: {message}")
@@ -34,4 +34,3 @@ async def main():
 
 with client:
     client.loop.run_until_complete(main())
- 
