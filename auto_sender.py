@@ -1,11 +1,12 @@
+import os
 from telethon import TelegramClient
 import schedule
-import time
+import asyncio
 
-# Введи свои данные
-api_id = 26071362  # Твой API ID с my.telegram.org
-api_hash = "c3d12bc02851cde9de371fa1a919bd76"  # Твой API Hash с my.telegram.org
-phone_number = "+77712388254"  # Твой номер телефона в формате +123456789
+# Чтение данных из переменных окружения
+api_id = int(os.getenv("API_ID"))
+api_hash = os.getenv("API_HASH")
+phone_number = os.getenv("PHONE_NUMBER")
 
 # Подключение к Telegram
 client = TelegramClient('user_session', api_id, api_hash)
@@ -30,7 +31,7 @@ async def main():
     print("Автоматизация запущена!")
     while True:
         schedule.run_pending()
-        time.sleep(1)
+        await asyncio.sleep(1)  # Асинхронный sleep вместо time.sleep(1)
 
 with client:
     client.loop.run_until_complete(main())
